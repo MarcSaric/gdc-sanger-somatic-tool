@@ -4,7 +4,7 @@ import unittest
 from gdc_sanger_tools.subcommands import Subcommand
 from gdc_sanger_tools.__main__ import main
 
-from utils import captured_output
+from tests.utils import captured_output
 
 
 class TestSubcommand(unittest.TestCase):

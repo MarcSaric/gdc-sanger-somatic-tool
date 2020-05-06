@@ -9,7 +9,7 @@ from gdc_sanger_tools.subcommands import CheckBamHeader
 from gdc_sanger_tools.__main__ import main
 from gdc_sanger_tools.logger import Logger 
 
-from utils import captured_output, get_test_data_path, cleanup_files
+from tests.utils import captured_output, get_test_data_path, cleanup_files
 
 
 @attr.s
