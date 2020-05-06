@@ -1,0 +1,5 @@
+pysam
+pytest
+pytest-cov
+flake8
+mock
