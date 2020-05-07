@@ -1,5 +1,6 @@
-from setuptools import setup, find_packages, Command
 import os.path
+
+from setuptools import Command, find_packages, setup
 
 INSTALL_REQUIRES = [
     'pysam',
@@ -10,6 +11,8 @@ DEV_REQUIRES = [
     'pytest-cov',
     'flake8',
     'mock',
+    'pre-commit',
+    'isort',
 ]
 
 
@@ -33,24 +36,22 @@ class Requirements(Command):
 
     def write_requirements(self, path, reqs):
         with open(path, 'w') as fh:
-            fh.write('\n'.join(reqs)+'\n')
+            fh.write('\n'.join(reqs) + '\n')
+
 
 setup(
-    name = "gdc-sanger-tools",
-    author = "Kyle Hernandez",
-    author_email = "kmhernan@uchicago.edu",
-    version = 0.1, 
-    description = "Utility tool for GDC Sanger Somatic Workflow",
-    license = "Apache 2.0",
-    packages = find_packages(),
+    name="gdc-sanger-tools",
+    author="Kyle Hernandez",
+    author_email="kmhernan@uchicago.edu",
+    version=0.1,
+    description="Utility tool for GDC Sanger Somatic Workflow",
+    license="Apache 2.0",
+    packages=find_packages(),
     python_requires='>=3.5',
     install_requires=INSTALL_REQUIRES,
     tests_require=DEV_REQUIRES,
-    entry_points= {
-        'console_scripts':
-        ['gdc-sanger-tools=gdc_sanger_tools.__main__:main']
+    entry_points={
+        'console_scripts': ['gdc-sanger-tools=gdc_sanger_tools.__main__:main']
     },
-    cmdclass={
-        'capture_requirements': Requirements,
-    },
+    cmdclass={'capture_requirements': Requirements,},
 )
