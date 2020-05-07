@@ -34,6 +34,7 @@ pytest-cov==2.8.1         # via -r requirements.in
 pytest==5.4.1             # via -r requirements.in, pytest-cov
 pyyaml==5.3.1             # via aspy.yaml, pre-commit
 six==1.14.0               # via cfgv, mock, packaging, pathlib2, pre-commit, virtualenv
+stringcase==1.2.0         # via -r requirements.in
 toml==0.10.0              # via pre-commit
 virtualenv==20.0.20       # via pre-commit
 wcwidth==0.1.9            # via pytest

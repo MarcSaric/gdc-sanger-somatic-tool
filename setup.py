@@ -4,6 +4,7 @@ from setuptools import Command, find_packages, setup
 
 INSTALL_REQUIRES = [
     'pysam',
+    'stringcase',
 ]
 
 DEV_REQUIRES = [

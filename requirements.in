@@ -1,4 +1,5 @@
 pysam
+stringcase
 pytest
 pytest-cov
 flake8
