@@ -3,10 +3,15 @@ Abstract base class for all subcommands in gdc-sanger-tools.
 """
 from abc import ABCMeta, abstractmethod
 
+import stringcase as sc
+
 from gdc_sanger_tools.utils import ArgParserT, NamespaceT
 
 
 class Subcommand(metaclass=ABCMeta):
+    DESCRIPTION = None
+    ARGUMENTS = None
+
     @classmethod
     @abstractmethod
     def __add_arguments__(cls, parser: ArgParserT):
@@ -30,19 +35,12 @@ class Subcommand(metaclass=ABCMeta):
         return None
 
     @classmethod
-    def __tool_name__(cls):
-        """
-        Tool name to use for the subparser
-        """
-        return cls.__name__
-
-    @classmethod
-    def add(cls, subparsers: ArgParserT) -> ArgParserT:
+    def setup_parser(cls, subparsers: ArgParserT) -> ArgParserT:
         """Adds the given subcommand to the subparsers."""
         subparser = subparsers.add_parser(
-            name=cls.__tool_name__(), description=cls.__get_description__()
+            name=sc.snakecase(cls.__name__), description=cls.__get_description__()
         )
 
         cls.__add_arguments__(subparser)
-        subparser.set_defaults(func=cls.main)
+        # subparser.set_defaults(func=cls.main)
         return subparser
