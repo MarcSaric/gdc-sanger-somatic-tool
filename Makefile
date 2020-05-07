@@ -1,11 +1,16 @@
 MODULE = gdc_sanger_tools
 .PHONY: init init-* lint requirements
-init: init-pip
+init: init-pip init-hooks
 
 init-pip:
 	@echo
 	@echo -- Installing pip packages --
 	pip3 install --no-cache-dir -r requirements.txt
+
+init-hooks:
+	@echo
+	@echo -- Installing Precommit Hooks --
+	pre-commit install
 
 lint:
 	@echo
