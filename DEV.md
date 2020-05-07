@@ -1,5 +1,19 @@
 # New Tooling
 
+## Makefile Commands
+
+### init
+
+Installs python requirements into the virtualenv and installs pre-commit hooks.
+
+### requirements
+
+Writes package dependencies specified in the `setup.py` file to `requirements.in`, then writes all first and second order dependencies to `requirements.txt`
+
+### test
+
+Runs code linting and unit tests.
+
 ## Dependency Management via `pip-tools`
 
 Dependencies should be specified within the `setup.py` file.
